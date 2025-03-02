@@ -6,7 +6,7 @@ Przed rozpoczęciem pracy z Git warto skonfigurować dane użytkownika:
 
 ```bash
 git config --global user.name "Jan Kowalski"
-git config --global user.email "youremail@example.com"
+git config --global user.email "youremail@domain.com"
 ```
 
 ---
@@ -48,6 +48,149 @@ git commit -m "first commit"
 📌 **Opcje:**
 
 - `-m "message"` – Dodaje wiadomość do commita.
+
+---
+
+## 📌 4. Praca z gałęziami
+
+### 🔹 Zmiana nazwy bieżącej gałęzi na `main`
+
+```bash
+git branch -M main
+```
+
+📌 **Opcje:**
+
+- `-M` – Nadpisuje istniejącą gałąź o podanej nazwie.
+
+### 🔹 Tworzenie nowej gałęzi `develop`
+
+```bash
+git branch develop
+```
+
+### 🔹 Przełączanie się na inną gałąź
+
+```bash
+git checkout develop
+```
+
+📌 **Opcje:**
+
+- `checkout` – Pozwala przełączać się pomiędzy istniejącymi gałęziami.
+
+### 🔹 Scalanie zmian z `develop` do `main`
+
+```bash
+git merge develop
+```
+
+---
+
+## 📌 5. Praca ze zdalnym repozytorium
+
+### 🔹 Dodanie zdalnego repozytorium o nazwie `origin`
+
+Pamiętaj, aby podmienić `URL` na adres swojego repozytorium:
+
+```bash
+git remote add origin http://github.com/szguzik/empty-project.git
+```
+
+Repozytorium może mieć więcej niż jeden adres, dlatego możesz dodać kolejne:
+
+```bash
+git remote add origin2 http://github.com/szguzik/empty-project-2.git
+```
+
+Jeśli używasz SSH:
+
+```bash
+git remote add origin git@github.com:szguzik-wsb/test-repo.git
+```
+
+### 🔹 Sprawdzenie listy zdalnych repozytoriów
+
+```bash
+git remote -v
+```
+
+### 🔹 Pobieranie zmian z zdalnego repozytorium
+
+```bash
+git fetch origin
+```
+
+### 🔹 Pobranie i scalanie zmian
+
+```bash
+git pull origin main
+```
+
+### 🔹 Zmiana adresu zdalnego repozytorium
+
+```bash
+git remote set-url origin git@github.com:szguzik-wsb/test-repo.git
+```
+
+---
+
+## 📌 6. Wypychanie zmian na zdalne repozytorium
+
+```bash
+git push origin main
+```
+
+---
+
+## 📌 7. Praca z tagami
+
+### 🔹 Tworzenie nowego tagu
+
+```bash
+git tag -a v1.0 -m "Wersja 1.0"
+```
+
+📌 **Opcje:**
+
+- `-a` – Tworzy tag z adnotacją.
+- `-m "message"` – Dodaje wiadomość do tagu.
+
+### 🔹 Wypchnięcie tagu do zdalnego repozytorium
+
+```bash
+git push origin v1.0
+```
+
+### 🔹 Lista tagów w repozytorium
+
+```bash
+git tag
+```
+
+### 🔹 Przełączanie się na tag
+
+```bash
+git checkout v1.0
+```
+
+### 🔹 Tworzenie nowej gałęzi na podstawie tagu
+
+```bash
+git checkout -b new-branch v1.0
+```
+
+### 🔹 Usunięcie lokalnego tagu
+
+```bash
+git tag -d v1.0
+```
+
+### 🔹 Usunięcie zdalnego tagu
+
+```bash
+git push --delete origin v1.0
+```
 
 ---
 
